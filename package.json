@@ -1,6 +1,6 @@
 {
   "name": "generator-kd.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generates a basic kd.js project boilerplate",
   "license": "MIT",
   "repository": "gokmen/generator-kd.js",
