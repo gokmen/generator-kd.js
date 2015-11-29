@@ -2,7 +2,7 @@
 
 [Yeoman](http://yeoman.io) generator that scaffolds out a kd.js web project for [kd.js](http://kd.io) framework that we built [Koding](https://koding.com) with it.
 
-![](http://take.ms/2x3kM)
+![](http://take.ms/CHgoC)
 
 ## Features
 
