@@ -1,0 +1,14 @@
+Description:
+    Creates a new basic kd.js application
+
+Example:
+    yo kd
+
+    This will create:
+
+        gulpfile.coffee: Configuration for the task runner.
+        package.json: Development packages installed by npm.
+        LICENSE: MIT License copy with your info
+        README.md: Generated Readme file
+
+        app/: Your application files.

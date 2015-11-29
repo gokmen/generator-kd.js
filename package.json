@@ -1,0 +1,41 @@
+{
+  "name": "generator-kd",
+  "version": "0.0.1",
+  "description": "Generates a basic kd.js project boilerplate",
+  "license": "MIT",
+  "repository": "gokmen/generator-kd",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 3000"
+  },
+  "author": {
+    "name": "Gokmen Goksel",
+    "email": "gokmen@goksel.me",
+    "url": "gokmen.goksel.me"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "boilerplate",
+    "kd.js",
+    "koding",
+    "template",
+    "scaffold",
+    "node",
+    "application"
+  ],
+  "dependencies": {
+    "underscore.string": "^3.2.2",
+    "yeoman-generator": "^0.21.1",
+    "yeoman-welcome": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0"
+  }
+}
