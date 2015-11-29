@@ -1,9 +1,9 @@
 {
-  "name": "generator-kd",
+  "name": "generator-kd.js",
   "version": "0.0.1",
   "description": "Generates a basic kd.js project boilerplate",
   "license": "MIT",
-  "repository": "gokmen/generator-kd",
+  "repository": "gokmen/generator-kd.js",
   "main": "app/index.js",
   "scripts": {
     "test": "mocha --reporter spec --timeout 3000"
