@@ -1,4 +1,7 @@
-# kd.js project generator [![Build Status](https://secure.travis-ci.org/gokmen/generator-kd.js.svg?branch=master)](http://travis-ci.org/gokmen/generator-kd.js)
+# kd.js project generator
+
+[![Build Status](https://secure.travis-ci.org/gokmen/generator-kd.js.svg?branch=master)](http://travis-ci.org/gokmen/generator-kd.js)
+[![NPM version](https://img.shields.io/npm/v/generator-kd.js.svg?style=flat-square)](https://www.npmjs.com/package/generator-kd.js)
 
 [Yeoman](http://yeoman.io) generator that scaffolds out a kd.js web project for [kd.js](http://kd.io) framework that we built [Koding](https://koding.com) with it.
 
@@ -18,12 +21,12 @@ For more information on what `generator-kd.js` can do for you, take a look at th
 ## Getting Started
 
 ```
-  $ npm install -g yo generator-kd.js  # install kd generator and yeoman
-  $ mkdir awesome-project; cd $_       # create a new project dir, enter it
-  $ yo kd.js                           # generates the project and does `npm install`
-  $ gulp                               # for building and preview
-                                       # if not opens automagically visit
-                                       # localhost:9000
+  $ npm install -g yo generator-kd.js       # install kd generator and yeoman
+  $ mkdir awesome-project; cd $_            # create a new project dir, enter it
+  $ yo kd.js                                # generates the project and runs `npm install`
+  $ gulp                                    # for building and preview
+                                            # if not opens automagically visit
+                                            # [localhost:9000](http://localhost:9000)
 ```
 
 ## License
