@@ -76,7 +76,7 @@ module.exports = yeoman.generators.Base.extend({
       bower: false,
       callback: function() {
         console.log (
-          '\nEveryting is ready, run '+ chalk.yellow.bold('gulp') +
+          '\nEverything is ready, run '+ chalk.yellow.bold('gulp') +
           ' to see ' + chalk.green.bold(this.appname) + ' alive!\n'
         );
       }.bind(this)

@@ -1,7 +1,7 @@
 {
   "name": "generator-kd.js",
-  "version": "0.0.4",
-  "description": "Generates a basic kd.js project boilerplate",
+  "version": "0.0.5",
+  "description": "Yeoman generator for kd.js",
   "license": "MIT",
   "repository": "gokmen/generator-kd.js",
   "main": "app/index.js",
@@ -23,6 +23,7 @@
     "yeoman-generator",
     "boilerplate",
     "kd.js",
+    "kd",
     "koding",
     "template",
     "scaffold",
