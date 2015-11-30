@@ -1,6 +1,6 @@
 {
   "name": "generator-kd.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generates a basic kd.js project boilerplate",
   "license": "MIT",
   "repository": "gokmen/generator-kd.js",
@@ -30,6 +30,7 @@
     "application"
   ],
   "dependencies": {
+    "chalk": "^1.1.1",
     "underscore.string": "^3.2.2",
     "yeoman-generator": "^0.21.1",
     "yeoman-welcome": "^1.0.1"
