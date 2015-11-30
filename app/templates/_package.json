@@ -4,7 +4,11 @@
   "description": "<%= appname %>: yet another kd.js project",
   "license": "MIT",
   "private": true,
-  "keywords": ["<%= appname %>", "kd", "kd.js"],
+  "keywords": [
+    "<%= appname %>",
+    "kd",
+    "kd.js"
+  ],
   "author": "<%= name %> <<%= email %>>",
   "devDependencies": {
     "browser-sync": "^2.10.0",
@@ -23,6 +27,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "kd.js": "^1.1.16",
+    "rimraf": "^2.4.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1"
   },
