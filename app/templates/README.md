@@ -52,11 +52,10 @@ Then in your code just `require` it, browserify will do the rest;
 By default while developing there is no minify or uglify process happening but for production environments to reduce the file sizes we need to tell builder (gulp) to generate output for production;
 
 ```
-  $ rm -rf dist # remove existing dist data
-  $ NODE_ENV='production' gulp
+  $ gulp production
 ```
 
-This will build everything for production, it will continue to watch file changes but it will take time to build so it's not recommended to use this while developing. You can use the `dist` folder to deploy your app.
+This will clean existing compiled files first then build everything for production. You can use the `./dist` folder to deploy your app, all the required files are in that folder, production ready.
 
 ## License
 
