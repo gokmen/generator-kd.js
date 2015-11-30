@@ -1,5 +1,6 @@
 'use strict';
 
+var chalk = require('chalk');
 var yeoman = require('yeoman-generator');
 var _s = require('underscore.string');
 
@@ -11,6 +12,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   _generate: function () {
+
+    console.log('');
 
     var cb = this.async();
 
@@ -69,7 +72,15 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.installDependencies({bower: false});
+    this.installDependencies({
+      bower: false,
+      callback: function() {
+        console.log (
+          '\nEveryting is ready, run '+ chalk.yellow.bold('gulp') +
+          ' to see ' + chalk.green.bold(this.appname) + ' alive!\n'
+        );
+      }.bind(this)
+    });
   }
 
 });
