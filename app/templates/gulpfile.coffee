@@ -5,6 +5,7 @@ uglify          = require 'gulp-uglify'
 streamify       = require 'gulp-streamify'
 CSSmin          = require 'gulp-minify-css'
 
+rimraf          = require 'rimraf'
 source          = require 'vinyl-source-stream'
 watchify        = require 'watchify'
 coffeeify       = require 'coffeeify'
@@ -117,6 +118,20 @@ gulp.task 'export-kd', ->
   gulp
     .src            './node_modules/kd.js/dist/kd.css'
     .pipe gulp.dest './dist/css/'
+
+
+gulp.task 'clean', (cb) ->
+
+  rimraf './dist', cb
+
+
+gulp.task 'production', [ 'clean' ], ->
+
+  production = yes
+
+  gulp.start 'build', ->
+    gutil.log 'Building for production is completed,
+               you can now deploy ./dist folder'
 
 
 gulp.task 'build',   [
