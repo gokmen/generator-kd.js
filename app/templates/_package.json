@@ -26,10 +26,11 @@
     "gulp-sym": "0.0.14",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
-    "kd.js": "^1.1.16",
     "rimraf": "^2.4.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "kd.js": "^1.1.30"
+  }
 }
