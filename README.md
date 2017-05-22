@@ -5,7 +5,9 @@
 
 [Yeoman](http://yeoman.io) generator that scaffolds out a kd.js web project for [kd.js](http://kd.io) framework that we built [Koding](https://koding.com) with it.
 
-![](http://take.ms/CHgoC)
+<img width="842" alt="kd.js generator for Yeoman" src="https://cloud.githubusercontent.com/assets/42368/26320965/bda98c9c-3ed9-11e7-8a8d-dcdf87bd0824.png">
+
+<img width="1642" alt="A generated kd.js project in action" src="https://cloud.githubusercontent.com/assets/42368/26320923/95ad285c-3ed9-11e7-9a52-33d29aad7158.png">
 
 ## Features
 
