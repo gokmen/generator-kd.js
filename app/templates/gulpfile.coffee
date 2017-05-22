@@ -13,6 +13,13 @@ browserify      = require 'browserify'
 
 production      = process.env.NODE_ENV is 'production'
 browserSync     = require('browser-sync').create()
+
+# to make browser-sync catch all the routes and redirect them to index.html,
+# kind of SPA mode.
+# see:
+# https://github.com/BrowserSync/browser-sync/issues/204#issuecomment-60410751
+historyFallback = require('connect-history-api-fallback')
+
 globalBundler   = null
 
 paths           =
@@ -92,10 +99,11 @@ gulp.task 'styles', ->
 gulp.task 'server', [ 'compile-scripts' ], ->
 
   browserSync.init
-    notify    : no
-    port      : 9000
-    server    :
-      baseDir : './dist'
+    notify       : no
+    port         : 9000
+    server       :
+      baseDir    : './dist'
+      middleware : [ historyFallback() ]
 
 
 gulp.task 'entry-point', ->
