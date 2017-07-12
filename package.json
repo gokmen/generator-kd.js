@@ -1,6 +1,6 @@
 {
   "name": "generator-kd.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Yeoman generator for kd.js",
   "license": "MIT",
   "repository": "gokmen/generator-kd.js",
@@ -34,7 +34,7 @@
     "chalk": "^2.0.1",
     "try-thread-sleep": "^1.0.0",
     "underscore.string": "^3.2.2",
-    "yeoman-generator": "^1.1.1",
+    "yeoman-generator": "^0.21.1",
     "yeoman-welcome": "^1.0.1"
   },
   "devDependencies": {
