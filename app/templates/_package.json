@@ -32,6 +32,6 @@
     "watchify": "^3.6.1"
  },
   "dependencies": {
-    "kd.js": "^1.1.30"
+    "kd.js": "^1.2.2"
   }
 }
