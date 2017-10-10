@@ -36,6 +36,6 @@
     "webpack-common-shake": "^1.5.3"
   },
   "dependencies": {
-    "kd.js": "^1.2.2"
+    "kd.js": "^1.2.3"
   }
 }
