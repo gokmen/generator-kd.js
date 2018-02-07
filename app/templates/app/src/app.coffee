@@ -4,7 +4,11 @@ do ->
 
   view = new kd.View
     cssClass  : 'hello-view center-all'
-    pistachio : 'Hello {{#(appname)}} kd.js project!'
+    pistachio : '''
+      <p>
+        Hello {{#(appname)}} kd.js project!
+      </p>
+    '''
   ,
     appname   : '<%= appname %>'
 
