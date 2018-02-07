@@ -7,7 +7,6 @@ CSSmin          = require 'gulp-minify-css'
 
 rimraf          = require 'rimraf'
 source          = require 'vinyl-source-stream'
-watchify        = require 'watchify'
 coffeeify       = require 'coffeeify'
 browserify      = require 'browserify'
 
@@ -101,9 +100,7 @@ gulp.task 'compile-scripts', ->
 gulp.task 'watch', ->
 
   gulp.watch paths.styles.watch, [ 'styles' ]
-
-  globalBundler = watchify getBrowserifiedBundler()
-  globalBundler.on 'update', -> gulp.start 'compile-scripts'
+  gulp.watch paths.scripts.watch, [ 'compile-scripts' ]
 
 
 gulp.task 'styles', ->
