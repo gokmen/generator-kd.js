@@ -6,7 +6,7 @@ After cloning the repo, cd into `<%= appname %>` directory and do;
 
 ```
   $ npm install
-  $ gulp # if not installed before; npm install -g gulp
+  $ npm start
 ```
 
 This will open your browser with `localhost:9000` and you should see the `<%= appname %>` project alive \o/
@@ -29,6 +29,9 @@ You can then update the code with your favourite editor (like Vim), all changes 
   │   │   └── app.coffee             # main app source code
   │   └── styl
   │       └── app.styl               # main app style file
+  ├── test
+  │   ├── bootstrap.coffee           # bootstrap for puppeteer
+  │   └── main.spec.coffee           # main test file
   ├── gulpfile.coffee                # gulp recipe
   └── package.json                   # npm packages
 ```
@@ -52,10 +55,26 @@ Then in your code just `require` it, browserify will do the rest;
 By default while developing there is no minify or uglify process happening but for production environments to reduce the file sizes we need to tell builder (gulp) to generate output for production;
 
 ```
-  $ gulp production
+  $ npm run production
 ```
 
-This will clean existing compiled files first then build everything for production. You can use the `./dist` folder to deploy your app, all the required files are in that folder, production ready.
+This will build everything for production and then run tests. You can use the `./dist` folder to deploy your app, all the required files are in that folder, production ready.
+
+## Tests
+
+You can run tests simply by calling;
+
+```
+  $ npm test
+```
+
+This will start testing for every `.coffee` files under `./test` directory. Where you can see an example test in `main.spec.coffee`. In the same folder there is another file called `bootstrap.coffee` which is responsible for booting up Puppeteer for tests.
+
+If you want to keep tests running whenever the bundle or a test spec changed;
+
+```
+  $ npm run test:watch
+```
 
 ## License
 

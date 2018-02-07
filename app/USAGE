@@ -2,7 +2,7 @@ Description:
     Creates a new basic kd.js application
 
 Example:
-    yo kd
+    yo kd.js
 
     This will create:
 
@@ -11,4 +11,5 @@ Example:
         LICENSE: MIT License copy with your info
         README.md: Generated Readme file
 
-        app/: Your application files.
+        app/: Your application files
+        test/: Tests for your application
