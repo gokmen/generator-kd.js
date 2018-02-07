@@ -13,9 +13,6 @@
     "email": "gokmen@goksel.me",
     "url": "gokmen.goksel.me"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  },
   "files": [
     "app"
   ],
@@ -31,14 +28,14 @@
     "application"
   ],
   "dependencies": {
-    "chalk": "^2.0.1",
-    "try-thread-sleep": "^1.0.0",
-    "underscore.string": "^3.2.2",
-    "yeoman-generator": "^0.21.1",
+    "chalk": "^2.3.0",
+    "underscore.string": "^3.3.4",
+    "yeoman-generator": "^2.0.1",
     "yeoman-welcome": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "*",
-    "yeoman-assert": "^3.0.0"
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
   }
 }
