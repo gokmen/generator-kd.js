@@ -28,6 +28,7 @@ paths           =
     source      : './app/src/app.coffee'
     destination : './dist/js/'
     filename    : './app.js'
+    vendor      : './vendor.js'
   styles        :
     source      : './app/styl/app.styl'
     watch       : './app/styl/*.styl'
@@ -60,6 +61,29 @@ getBrowserifiedBundler = ->
     extensions   : [ '.coffee' ]
     transform    : [ 'coffeeify' ]
     debug        : !production
+
+  globalBundler.external 'kd.js'
+
+  return globalBundler
+
+
+gulp.task 'compile-vendors', ->
+
+  vendorBundler = browserify
+    cache        : {}
+    packageCache : {}
+    fullPaths    : {}
+    require      : 'kd.js'
+    debug        : !production
+
+  bundle = vendorBundler.bundle()
+    .on 'error', handleError
+    .pipe source paths.scripts.vendor
+
+  bundle.pipe streamify uglify()  if production
+  bundle
+    .pipe gulp.dest paths.scripts.destination
+    .pipe browserSync.reload stream: yes
 
 
 gulp.task 'compile-scripts', ->
