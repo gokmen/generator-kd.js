@@ -1,24 +1,25 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var helpers = require('yeoman-generator').test;
-var assert = require('yeoman-assert');
+const path = require('path')
+const helpers = require('yeoman-test')
+const assert = require('yeoman-assert')
 
-describe('general', function () {
-  before(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
+describe('general', () => {
+  before(function(done) {
+    helpers
+      .run(path.join(__dirname, '../app'))
       .inDir(path.join(__dirname, '.tmp'))
-      .withOptions({'skip-install': true})
-      .withPrompts({features: []})
-      .on('end', done);
-  });
+      .withOptions({ 'skip-install': true })
+      .withPrompts({ features: [] })
+      .on('end', done)
+  })
 
   // not testing the actual run of generators yet
-  it('can be required without throwing', function () {
-    this.app = require('../app');
-  });
+  it('can be required without throwing', () => {
+    this.app = require('../app')
+  })
 
-  it('creates expected files', function () {
+  it('creates expected files', () => {
     assert.file([
       'package.json',
       'LICENSE',
@@ -29,9 +30,11 @@ describe('general', function () {
       'gulpfile.coffee',
       'app/images/apple-touch-icon.png',
       'app/images/favicon.ico',
+      'test/bootstrap.coffee',
+      'test/main.spec.coffee',
       '.editorconfig',
       '.gitattributes',
-      '.gitignore'
-    ]);
-  });
-});
+      '.gitignore',
+    ])
+  })
+})
