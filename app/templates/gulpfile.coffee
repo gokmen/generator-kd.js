@@ -1,5 +1,6 @@
 gulp            = require 'gulp'
 gutil           = require 'gulp-util'
+mocha           = require 'gulp-spawn-mocha'
 stylus          = require 'gulp-stylus'
 uglify          = require 'gulp-uglify'
 streamify       = require 'gulp-streamify'
@@ -17,8 +18,9 @@ browserSync     = require('browser-sync').create()
 # kind of SPA mode.
 # see:
 # https://github.com/BrowserSync/browser-sync/issues/204#issuecomment-60410751
-historyFallback = require('connect-history-api-fallback')
+historyFallback = require 'connect-history-api-fallback'
 
+openApp         = yes
 globalBundler   = null
 
 paths           =
@@ -39,6 +41,9 @@ paths           =
   images        :
     source      : './app/images/*'
     destination : './dist/images/'
+  test          :
+    app         : './dist/**/*'
+    cases       : './test/*.coffee'
 
 
 handleError = (err) ->
@@ -117,10 +122,16 @@ gulp.task 'styles', ->
     .pipe browserSync.reload stream: yes
 
 
-gulp.task 'server', [ 'compile-scripts' ], ->
+gulp.task 'server', [ 'compile' ], ->
+
+  gulp.start [ 'run-server' ]
+
+
+gulp.task 'run-server', ->
 
   browserSync.init
     notify       : no
+    open         : openApp
     port         : 9000
     server       :
       baseDir    : './dist'
@@ -149,22 +160,62 @@ gulp.task 'export-kd', ->
     .pipe gulp.dest './dist/css/'
 
 
-gulp.task 'clean', (cb) ->
+gulp.task 'clean', (cb) -> rimraf './dist', cb
 
-  rimraf './dist', cb
+gulp.task 'enable-test-watch', [ 'default' ], ->
+
+  gulp.watch paths.test.app,   [ 'single-test' ]
+  gulp.watch paths.test.cases, [ 'single-test' ]
+
+  gulp.start 'single-test'
+
+gulp.task 'enable-prod', -> production = yes
+
+gulp.task 'disable-open', -> openApp = no
+
+gulp.task 'prod-build', [ 'enable-prod', 'serve-only', 'test' ]
+
+gulp.task 'production', [ 'prod-build' ], ->
+
+  gutil.log 'Building for production is completed,
+             you can now deploy ./dist folder'
+
+gulp.task 'test', [ 'disable-open', 'serve-only' ], (done) ->
+
+  gulp
+    .src ['./test/*.coffee'], read: no
+    .pipe mocha
+      reporter: 'list'
+      require: 'coffeescript/register'
+
+    .on 'end', ->
+      browserSync.exit()
+
+    .once 'error', ->
+      @emit 'end'
+
+gulp.task 'single-test', ->
+
+  gulp
+    .src ['./test/*.coffee'], read: no
+    .pipe mocha
+      reporter: 'list'
+      require: 'coffeescript/register'
+
+    .once 'error', ->
+      @emit 'end'
 
 
-gulp.task 'production', [ 'clean' ], ->
+gulp.task 'test-watch', [ 'enable-test-watch' ]
 
-  production = yes
-
-  gulp.start 'build', ->
-    gutil.log 'Building for production is completed,
-               you can now deploy ./dist folder'
-
+gulp.task 'compile', [ 'compile-vendors', 'compile-scripts' ]
 
 gulp.task 'build',   [
-  'compile-scripts', 'styles', 'entry-point', 'export-kd', 'images'
+  'compile', 'styles', 'entry-point', 'export-kd', 'images'
+]
+
+gulp.task 'serve-only', [
+  'build', 'server'
 ]
 
 gulp.task 'default', [
