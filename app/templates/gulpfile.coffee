@@ -60,7 +60,7 @@ getBrowserifiedBundler = ->
   globalBundler  = browserify
     cache        : {}
     packageCache : {}
-    fullPaths    : {}
+    fullPaths    : no
     entries      : [ paths.scripts.source ]
     extensions   : [ '.coffee' ]
     transform    : [ 'coffeeify' ]
@@ -76,7 +76,7 @@ gulp.task 'compile-vendors', ->
   vendorBundler = browserify
     cache        : {}
     packageCache : {}
-    fullPaths    : {}
+    fullPaths    : no
     require      : 'kd.js'
     debug        : !production
 
