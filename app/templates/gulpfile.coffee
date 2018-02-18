@@ -2,7 +2,7 @@ gulp            = require 'gulp'
 gutil           = require 'gulp-util'
 mocha           = require 'gulp-spawn-mocha'
 stylus          = require 'gulp-stylus'
-uglify          = require 'gulp-uglify'
+uglify          = require('gulp-uglify-es').default
 streamify       = require 'gulp-streamify'
 CSSmin          = require 'gulp-minify-css'
 
